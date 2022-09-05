@@ -1,0 +1,246 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Montserrat', sans-serif;
+}
+
+p {
+    font-weight: bold;
+}
+
+.logo {
+    background-image: url("../assets/logo/Logo.png");
+    background-position: center;
+    height: 10px;
+    width: 10px;
+}
+
+.titulo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100vw;
+    height: 10vh; 
+    color: #1142a3;
+    background-color: antiquewhite;
+    text-align:left;
+}
+
+.titulo h1 {
+    margin: 0;
+    padding-left: 1em;
+    line-height: 15vh;
+}
+
+.mainContainer {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: hsla(221, 45%, 73%, 1);
+    background: linear-gradient(
+        90deg, 
+        hsla(221, 45%, 73%, 1) 0%, 
+        hsla(220, 78%, 29%, 1) 100%
+        );
+    background: -moz-linear-gradient(
+        90deg,
+        hsla(221, 45%, 73%, 1) 0%, 
+        hsla(220, 78%, 29%, 1) 100%
+        );
+    background: -webkit-linear-gradient(
+        90deg, 
+        hsla(221, 45%, 73%, 1) 0%, 
+        hsla(220, 78%, 29%, 1) 100%
+        );
+    filter: progid: DXImageTransform.Microsoft.gradient(
+        startColorstr="#9BAFD9", 
+        endColorstr="#103783", 
+        GradientType=1
+        );
+}
+
+.subContainer {
+    width: 100vw;
+    height: 80vh;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 75vh;
+    width: 40vw;
+    border-radius: 10px;
+/*     background: hsla(221, 45%, 73%, 1);
+    background: linear-gradient(
+        90deg, 
+        hsla(221, 45%, 73%, 1) 0%, 
+        hsla(220, 78%, 29%, 1) 100%
+        );
+    background: -moz-linear-gradient(
+        90deg, 
+        hsla(221, 45%, 73%, 1) 0%, 
+        hsla(220, 78%, 29%, 1) 100%
+        );
+    background: -webkit-linear-gradient(
+        90deg, 
+        hsla(221, 45%, 73%, 1) 0%, 
+        hsla(220, 78%, 29%, 1) 100%
+        );
+    filter: progid: DXImageTransform.Microsoft.gradient(
+        startColorstr="#9BAFD9", 
+        endColorstr="#103783", 
+        GradientType=1
+        ); */
+}
+
+.buttonContainer {
+    height: min-content;
+    width: 30vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+}
+
+.boton {
+    width: 10vw;
+    height: 8vh;
+    border-radius: 10px;
+    background-color: #103783;
+    color: antiquewhite;
+    font-size: large;
+    cursor: pointer;
+    border-color: transparent;
+}
+
+.boton:hover {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+    transition: 100ms;
+    box-shadow: 0px 0px 2px 3px rgba(0, 0, 0, 0.2)
+}
+
+
+.contendorTextoAEncriptar {
+    position: relative;
+    height: 20em;
+    width: 20em;
+    border-radius: 5px;
+    padding: 20px;
+    
+}
+
+.inputText {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: x-large;
+    resize: none;
+    height: inherit;
+    width: inherit;
+    border-radius: 5px;
+    padding: 20px;
+    outline-color: transparent;
+}
+
+.inputText:hover { 
+    box-shadow: 0px 0px 3px 5px rgba(0, 0, 0, 0.2)
+}
+
+.resultContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 40%;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 10px;
+    border-color: black;
+}
+
+.contenedorTextoEncriptado {
+    position: relative;
+    height: 20em;
+    width: 20em;
+    padding: 20px;
+    
+}
+
+.encriptedText {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    font-size: x-large;
+    padding: 20px;
+    resize: none;
+    height: inherit;
+    width: inherit;
+    border-radius: 5px; 
+    outline-color: transparent;
+    border-color: transparent;   
+}
+
+.preview {
+    position: absolute;
+    background-image: url("../assets/images/Muñeco.png");
+    padding: 20px;
+    left: 0;
+    top: 0;
+    background-position: center;
+    height: inherit;
+    width: inherit;
+    z-index: 10;
+    border-radius: 5px;
+}
+
+
+.encriptedText:hover {
+    box-shadow: 0px 0px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.footer {
+    display: flex;
+    width: 100vw;
+    height: 100px;
+    background-color: antiquewhite;
+}
+
+.footer .github, .autor {
+    padding-top: 20px;
+}
+
+.autor {
+    font-weight: bold;
+}
+
+.leyenda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}   
+
+.leyenda img {
+    height: 16px;
+    margin-right: 5px;
+}
+
+.github img {
+    height: 20px;
+    padding-left: 20px;
+}

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./styles/index.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+        <title>Encriptador</title>
+    </head>
+
+    <body>
+        <div class="mainContainer">
+            <div class="titulo">
+                <img src="./assets/logo/Logo.png" alt="Nada">
+                <!-- <div class="logo"></div> -->
+                <h1>Encriptador de Texto</h1>
+            </div>            
+            <div class="subContainer">
+                <div class="formContainer">
+                    <div class="contendorTextoAEncriptar">
+                        <textarea 
+                        type="text" 
+                        id="textoIngresado" 
+                        class="inputText"
+                        placeholder="Ingrese el texto a encriptar o desencriptar"
+                        ></textarea> 
+                    </div>
+                    <div class="leyenda">
+
+                        <img src="./assets/images/Vector.png" alt="">
+                        <p>Solo letras minúsculas y sin acentos</p>
+                    </div>
+                    <div class="buttonContainer">
+                        <button id="botonEncriptar" class="boton">
+                            Encriptar
+                        </button>
+                        <button id="botonDesencriptar" class="boton">
+                            Desencriptar
+                        </button>
+                    </div>
+                </div>
+                <div class="formContainer">
+                    <div id="contenedorTextoEncriptado" class="contenedorTextoEncriptado">
+                        <div id="preview" class="preview"></div>
+                        <textarea 
+                            class="encriptedText" 
+                            id="textoEncriptado"
+                            placeholder="Nada que mostrar" 
+                            readonly 
+                        ></textarea>
+                    </div>
+                    <p>Ingresa el texto que desees encriptar o desencriptar</p>
+                    <div class="buttonContainer">
+                        <button id="botonCopiar" class="boton">Copy</button>
+                        <button id="botonLimpiar" class="boton">Clear</button>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <div class="footer">
+                    <div class="github">
+                        <a href="https://github.com/Saul704" target="_blank">
+                            <img src="https://th.bing.com/th/id/R.466398e78d0b753fbd1c43306315e1d2?rik=QjSfutDQ5vfPHw&pid=ImgRaw&r=0" alt="">
+                        </a>
+                    </div>
+                    <div class="autor">Angel Saul Vodopivec</div>
+                </div>
+            </footer>
+        </div>
+        
+        <script>
+
+            // Guardo en variables:
+            // El input donde de va a ingresar la palabra o frase
+            // El input donde se va a mostrar el texto encriptado o desencriptado
+            // El botón que va a encriptar la palabra o frase ingresada
+            // EL boton para desencriptar la palabra o frase encriptada
+            // El boton para copiar la palabra o frase encriptada
+
+            var textoIngresado = document.getElementById("textoIngresado");
+            var textoEncriptado = document.getElementById("textoEncriptado")
+            var botonEncriptar = document.getElementById("botonEncriptar");
+            var botonDesencriptar = document.getElementById("botonDesencriptar");
+            var botonCopiar = document.getElementById("botonCopiar");
+            let botonLimpiar = document.getElementById("botonLimpiar");
+            let container = document.getElementById("contenedorTextoEncriptado");
+            let preview = document.getElementById("preview");
+
+            // Diccionario de encriptación
+            let dic = {
+                e: "enter",
+                i: "imes",
+                a: "ai",
+                o: "ober",
+                u: "ufat"
+            }
+
+            // aplico el metodo focus() para ubicar el cursor en el input
+            // que va a recibir la palabra o frase
+            textoIngresado.focus();
+
+            // Funcion para encriptar
+            function encriptar() {
+
+                // Guardo en una variable un string vacio
+                let encriptedText = textoIngresado.value;
+                
+                // Usando un bucle for recorro la palabra ingresada 
+
+                for (let letter in dic) {
+                    console.log(encriptedText)
+                    encriptedText = encriptedText.replaceAll(letter, dic[letter])
+                }
+
+                textoEncriptado.style.zIndex = 20;
+                textoEncriptado.value = encriptedText;
+                textoIngresado.value = '';
+            }
+
+            function desencriptar() {
+
+                // Guardo en una variable un string vacio
+                let dw = textoIngresado.value;
+                
+                // Usando un bucle for recorro la palabra ingresada 
+
+                for (let letter in dic) {
+
+                    dw = dw.replaceAll(dic[letter], letter)
+                }
+                
+                textoEncriptado.style.zIndex = 20;
+                textoEncriptado.value = dw;
+                textoIngresado.value = '';
+                textoIngresado.focus();
+
+            }
+
+            function copyOnClipboard() {
+                document.execCommand("copy");
+                textoEncriptado.value = '';
+                textoIngresado.focus();
+            }
+
+            document.oncopy = (event) => {
+
+                event.preventDefault();
+                event.clipboardData.setData(
+                    'text/plain',
+                    textoEncriptado.value
+                );
+                textoEncriptado.style.zIndex = 0;
+            }
+
+            function clearEncriptedWord () {
+                textoEncriptado.value = '';
+                textoEncriptado.style.zIndex = 0
+            }
+
+            botonEncriptar.onclick = encriptar;
+            botonCopiar.onclick = copyOnClipboard;
+            botonDesencriptar.onclick = desencriptar;
+            botonLimpiar.onclick = clearEncriptedWord;
+
+        </script>
+
+    </body>
+
+</html>
